@@ -21,7 +21,8 @@
   "rules": {
     "react/prop-types": [
       0
-    ]
+    ],
+    "no-debugger": "warn"
   },
   "settings": {
     "import/resolver": {

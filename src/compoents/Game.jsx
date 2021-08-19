@@ -30,16 +30,16 @@ const Game = () => {
 
   const handleClick = (i) => {
     const newHistory = history.slice(0, stepNumber + 1);
-    const current = history[history.length - 1];
+    const current = history[stepNumber];
     const squares = [...current.squares];
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
     squares[i] = turnX ? 'X' : 'O';
 
-    setHistory(newHistory.concat([{ squares }]));
+    setHistory([...newHistory, { squares }]);
     setStepNumber(newHistory.length);
-    setTurnX(((pre) => !pre));
+    setTurnX(newHistory.length % 2 === 0);
   };
 
   const jumpTo = (step) => {
